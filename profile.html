@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DPO-AAS-AI — Выбор проекта</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+
+    <div class="page-container profile-page">
+        
+        <!-- Шапка профиля -->
+        <header class="profile-header">
+            <a href="index.html" class="back-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                <span>На главную</span>
+            </a>
+            <div class="user-info">
+                <div class="user-avatar">АИ</div>
+                <span class="user-name">alex_ivanov</span>
+            </div>
+        </header>
+        
+        <!-- Основной контент -->
+        <main class="profile-content">
+            
+            <div class="profile-monolith">
+                
+                <!-- Плашки -->
+                <div class="profile-planks">
+                    
+                    <!-- Левая плашка -->
+                    <div class="profile-plank profile-plank-left">
+                        <div class="profile-plank-content">
+                            <h3 class="profile-plank-title">Новый проект</h3>
+                            <p class="profile-plank-text">Загрузите данные и создайте новый дашборд с ИИ-аналитикой</p>
+                            <button class="profile-plank-btn" id="newProjectBtn">Создать</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Правая плашка -->
+                    <div class="profile-plank profile-plank-right">
+                        <div class="profile-plank-content">
+                            <h3 class="profile-plank-title">Поиск</h3>
+                            <p class="profile-plank-text">Быстрый поиск по всем проектам и дашбордам</p>
+                            <div class="search-box">
+                                <input type="text" placeholder="Найти проект..." class="search-input" id="searchInput">
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!-- Навигационный круг -->
+                <div class="wheel-container">
+                    <div class="wheel" id="projectWheel">
+                        <!-- Сектора проектов -->
+                        <div class="wheel-center">
+                            <div class="wheel-center-inner">
+                                <span class="wheel-label">Выберите проект</span>
+                                <span class="wheel-selected" id="wheelSelected">—</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </main>
+        
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

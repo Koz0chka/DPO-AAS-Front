@@ -1,5 +1,3 @@
-// charts.js - интерактивные графики с Chart.js
-
 document.addEventListener('DOMContentLoaded', function() {
     
     // Общие настройки для графиков

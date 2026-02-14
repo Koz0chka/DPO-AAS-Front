@@ -120,7 +120,7 @@ body {
 }
 
 .left-plank {
-    border-radius: 40px 0 0 40px; /* Скругление слева */
+    border-radius: 40px 0 0 40px;
     padding-left: 40px;
     padding-right: 60px;
     width: 100%;
@@ -141,7 +141,7 @@ body {
 }
 
 .right-plank {
-    border-radius: 0 40px 40px 0; /* Скругление справа */
+    border-radius: 0 40px 40px 0;
     padding-right: 40px;
     padding-left: 60px;
     width: 100%;
@@ -670,7 +670,7 @@ body {
     transition: border-color 0.2s ease;
     height: 100%;
     width: 100%;
-    max-width: 500px; /* Ограничиваем ширину карточки */
+    max-width: 500px;
 }
 
 .testimonial-card:hover {
@@ -683,7 +683,7 @@ body {
     color: #333;
     margin-bottom: 1.5rem;
     line-height: 1.6;
-    text-align: left; /* Текст отзыва выровнен по левому краю для читаемости */
+    text-align: left;
 }
 
 .testimonial-author {
@@ -879,7 +879,7 @@ body {
     }
     
     .left-plank, .right-plank {
-        border-radius: 40px !important; /* На мобильных скругление со всех сторон */
+        border-radius: 40px !important;
         padding: 2rem !important;
         justify-content: center;
     }

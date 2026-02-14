@@ -1,8 +1,5 @@
-// main.js - интерактивность для DataViz AI лендинга
-
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Плавный скролл для кнопки "Начать"
     const startButton = document.querySelector('.circle-button');
     
     if (startButton) {
@@ -18,25 +15,21 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
-    // Добавляем эффект "наведения" на карточки проектов
+
     const projectCards = document.querySelectorAll('.project-card');
     
     projectCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
-            // Ничего не делаем, стили через CSS
         });
         
         card.addEventListener('mouseleave', function() {
-            // Ничего не делаем, стили через CSS
         });
         
         card.addEventListener('click', function() {
             alert('Демо: вы выбрали проект "' + this.querySelector('.project-title').textContent + '"');
         });
     });
-    
-    // Скрываем индикатор скролла при достижении последней секции
+
     const scrollContainer = document.querySelector('.scroll-container');
     const scrollIndicator = document.querySelector('.scroll-indicator');
     
@@ -53,8 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
-    // Приветственное сообщение
-    console.log('DataViz AI: интерактивные графики загружены');
+
+    console.log('DPO-AAS-AI: интерактивные графики загружены');
     
 });

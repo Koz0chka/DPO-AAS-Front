@@ -93,3 +93,60 @@ function formatNumber(num) {
     }
     return num.toString();
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    initFadeIn();
+    
+    checkRegistration();
+    
+    console.log('DPO-AAS-AI: Main module loaded');
+});
+
+/**
+ * Плавное появление элементов при загрузке
+ */
+function initFadeIn() {
+    const elements = document.querySelectorAll('.monolith, .profile-monolith, .error-monolith, .register-card');
+    
+    elements.forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        
+        setTimeout(() => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+        }, 100 + index * 150);
+    });
+}
+
+/**
+ * Проверка регистрации и перенаправление
+ */
+function checkRegistration() {
+    const heroCircle = document.querySelector('.hero-circle');
+    
+    if (heroCircle) {
+        heroCircle.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const isRegistered = localStorage.getItem('dpo_registered');
+            
+            if (isRegistered === 'true') {
+                window.location.href = 'profile.html';
+            } else {
+                window.location.href = 'register.html';
+            }
+        });
+    }
+}
+
+function checkAuth() {
+    const isRegistered = localStorage.getItem('dpo_registered');
+    
+    if (isRegistered !== 'true') {
+        // Если не зарегистрирован, перенаправляем на главную
+        // window.location.href = 'index.html';
+    }
+}

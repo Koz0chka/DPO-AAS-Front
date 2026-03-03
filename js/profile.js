@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Данные проектов
+    loadUserData();
+    
     const projects = [
         { 
             id: 1, 
@@ -40,23 +41,50 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
     
-    // Элементы
     const wheel = document.getElementById('projectWheel');
     const wheelSelected = document.getElementById('wheelSelected');
     const searchInput = document.getElementById('searchInput');
     
     if (!wheel) return;
     
-    // Создаём сектора
     createSectors();
     
-    // Обработчики событий
     initWheelInteraction();
     initSearch();
     
-    /**
-     * Создание секторов колеса
-     */
+    function loadUserData() {
+        const userAvatar = document.querySelector('.user-avatar');
+        const userName = document.querySelector('.user-name');
+        
+        const userData = localStorage.getItem('dpo_user');
+        
+        if (userData && userAvatar && userName) {
+            try {
+                const user = JSON.parse(userData);
+                
+                userName.textContent = user.fullname;
+                
+                const initials = getInitials(user.fullname);
+                userAvatar.textContent = initials;
+                
+            } catch (e) {
+                console.error('Ошибка загрузки данных пользователя:', e);
+            }
+        }
+    }
+
+    function getInitials(fullname) {
+        const words = fullname.split(/\s+/).filter(word => word.length > 0);
+        
+        if (words.length >= 2) {
+            return (words[0][0] + words[1][0]).toUpperCase();
+        } else if (words.length === 1) {
+            return words[0].substring(0, 2).toUpperCase();
+        }
+        
+        return 'ЪЪ';
+    }
+    
     function createSectors() {
         const sectorAngle = 360 / projects.length;
         const wheelRadius = 200;
@@ -78,7 +106,6 @@ document.addEventListener('DOMContentLoaded', function() {
             sector.appendChild(bg);
             wheel.appendChild(sector);
             
-            // Текст сектора
             const label = document.createElement('div');
             label.className = 'wheel-sector-label';
             label.innerHTML = `
@@ -86,12 +113,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="wheel-sector-meta">${project.meta}</div>
             `;
             
-            // Позиционируем текст в середине сектора
             const midAngle = startAngle + sectorAngle / 2;
             const angleRad = midAngle * Math.PI / 180;
             const labelRadius = (wheelRadius + centerRadius) / 2;
-            
-            // Инвертируем координаты
+
             const x = 200 - Math.cos(angleRad) * labelRadius;
             const y = 200 - Math.sin(angleRad) * labelRadius;
             
@@ -103,9 +128,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    /**
-     * Инициализация взаимодействия с колесом
-     */
     function initWheelInteraction() {
         let activeSectorIndex = null;
         
@@ -190,9 +212,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    /**
-     * Поиск по проектам
-     */
     function initSearch() {
         if (!searchInput) return;
         
@@ -216,8 +235,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-    
-    // Кнопка нового проекта
+
     const newProjectBtn = document.getElementById('newProjectBtn');
     if (newProjectBtn) {
         newProjectBtn.addEventListener('click', function() {
